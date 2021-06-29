@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./layout.module.css";
@@ -8,6 +9,12 @@ const name = "Bryan Leewood";
 export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
+  useEffect(() => {
+    console.log("env", process.env.NEXT_PUBLIC_ANALYTICS_ID);
+    console.log("env", process.env.NEXT_PUBLIC_DEVTEST);
+    console.log("env", process.env.NEXT_PUBLIC_PRODTEST);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
